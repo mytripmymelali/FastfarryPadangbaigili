@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padangbai Gili Fastboat - Tiket Kapal Cepat ke Gili Islands</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e88e5;
+            --secondary: #0d47a1;
+            --accent: #ff6f00;
+            --light: #f5f9ff;
+            --dark: #1a237e;
+            --success: #43a047;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        
+        nav a:hover, nav a.active {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .language-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .lang-btn {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            background: #ff8f00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            background: var(--primary);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Schedule Section */
+        .schedule {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+        }
+        
+        .schedule-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .tabs {
+            display: flex;
+            background: var(--dark);
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .tab.active {
+            background: var(--accent);
+        }
+        
+        .tab-content {
+            padding: 30px;
+        }
+        
+        .route-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .price {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        /* Booking Section */
+        .booking {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .booking-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .booking-summary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .summary-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-ship fa-2x"></i>
+                <h1>Padangbai Gili Fastboat</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="#">Jadwal</a></li>
+                    <li><a href="#">Harga</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" id="id-lang">ID</button>
+                <button class="lang-btn" id="en-lang">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 id="hero-title">Tiket Fastboat ke Pulau Gili</h2>
+            <p id="hero-subtitle">Perjalanan cepat, aman, dan nyaman ke Gili Trawangan, Gili Meno, dan Gili Air</p>
+            <a href="#booking" class="btn" id="hero-button">Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="features-title">Mengapa Memilih Kami?</h2>
+                <p id="features-subtitle">Layanan terbaik untuk perjalanan Anda ke Pulau Gili</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 id="feature1-title">Perjalanan Cepat</h3>
+                        <p id="feature1-text">Hanya 1.5 jam dari Padangbai ke Gili Trawangan dengan kapal cepat modern kami.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 id="feature2-title">Keamanan Terjamin</h3>
+                        <p id="feature2-text">Kapal kami dilengkapi dengan peralatan keselamatan terbaru dan kru berpengalaman.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3 id="feature3-title">Pemesanan Mudah</h3>
+                        <p id="feature3-text">Pesan tiket online kapan saja dan dapatkan konfirmasi instan melalui email.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="schedule-title">Jadwal dan Rute</h2>
+                <p id="schedule-subtitle">Pilih jadwal yang sesuai dengan rencana perjalanan Anda</p>
+            </div>
+            <div class="schedule-container">
+                <div class="tabs">
+                    <div class="tab active" data-route="padangbai-gili">Padangbai ke Gili</div>
+                    <div class="tab" data-route="gili-padangbai">Gili ke Padangbai</div>
+                </div>
+                <div class="tab-content">
+                    <h3 class="route-title" id="route-title">Padangbai ke Pulau Gili</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="departure-header">Keberangkatan</th>
+                                <th id="arrival-header">Tiba</th>
+                                <th id="destination-header">Tujuan</th>
+                                <th id="price-header">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08:00</td>
+                                <td>09:30</td>
+                                <td>Gili Trawangan</td>
+                                <td class="price">Rp 600.000</td>
+                            </tr>
+                            <tr>
+                                <td>10:00</td>
+                                <td>11:30</td>
+                                <td>Gili Meno</td>
+                                <td class="price">Rp 650.000</td>
+                            </tr>
+                            <tr>
+                                <td>12:00</td>
+                                <td>13:30</td>
+                                <td>Gili Air</td>
+                                <td class="price">Rp 650.000</td>
+                            </tr>
+                            <tr>
+                                <td>14:00</td>
+                                <td>15:30</td>
+                                <td>Gili Trawangan</td>
+                                <td class="price">Rp 600.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="note">
+                        <p><strong id="note-header">Catatan:</strong> <span id="note-text">Harga untuk dewasa. Anak-anak (3-11 tahun) mendapat diskon 30%. Bayi (0-2 tahun) gratis.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="booking-title">Pesan Tiket Anda</h2>
+                <p id="booking-subtitle">Isi formulir di bawah ini untuk memesan tiket fastboat Anda</p>
+            </div>
+            <div class="booking-container">
+                <div class="booking-form">
+                    <h3 class="form-title" id="form-title">Detail Pemesanan</h3>
+                    <form id="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" id="name-label">Nama Lengkap</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" id="email-label">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone" id="phone-label">Nomor Telepon</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date" id="date-label">Tanggal Keberangkatan</label>
+                                <input type="date" id="date" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="route" id="route-label">Rute</label>
+                            <select id="route" required>
+                                <option value="" id="select-route">Pilih Rute</option>
+                                <option value="padangbai-gili-trawangan">Padangbai → Gili Trawangan</option>
+                                <option value="padangbai-gili-meno">Padangbai → Gili Meno</option>
+                                <option value="padangbai-gili-air">Padangbai → Gili Air</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adults" id="adults-label">Dewasa (12+ tahun)</label>
+                                <input type="number" id="adults" min="1" value="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="children" id="children-label">Anak-anak (3-11 tahun)</label>
+                                <input type="number" id="children" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" id="message-label">Pesan Tambahan (opsional)</label>
+                            <textarea id="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn" id="submit-button">Lanjutkan ke Pembayaran</button>
+                    </form>
+                </div>
+                <div class="booking-summary">
+                    <h3 class="summary-title" id="summary-title">Ringkasan Pesanan</h3>
+                    <div class="summary-item">
+                        <span id="ticket-label">Tiket Dewasa (1x)</span>
+                        <span>Rp 600.000</span>
+                    </div>
+                    <div class="summary-item">
+                        <span id="discount-label">Diskon</span>
+                        <span>- Rp 0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span id="fee-label">Biaya Layanan</span>
+                        <span>Rp 20.000</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span id="total-label">Total</span>
+                        <span>Rp 620.000</span>
+                    </div>
+                    <div class="summary-item">
+                        <p id="summary-note">* Harga termasuk PPN 10%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 id="footer-about">Tentang Kami</h3>
+                    <p id="footer-about-text">Padangbai Gili Fastboat menyediakan layanan transportasi cepat dan nyaman dari Padangbai ke Pulau Gili sejak 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3 id="footer-links">Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#" id="link-home">Beranda</a></li>
+                        <li><a href="#" id="link-schedule">Jadwal & Harga</a></li>
+                        <li><a href="#" id="link-faq">FAQ</a></li>
+                        <li><a href="#" id="link-terms">Syarat & Ketentuan</a></li>
+                        <li><a href="#" id="link-contact">Kontak Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 id="footer-contact">Kontak Kami</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> <span id="address">Pelabuhan Padangbai, Bali</span></li>
+                        <li><i class="fas fa-phone"></i> <span id="phone-footer">+62816247213</span></li>
+                        <li><i class="fas fa-envelope"></i> <span id="email-footer">info@padangbaigilifastboat.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span id="hours">08:00 - 17:00 (Setiap Hari)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p id="copyright-text">&copy; 2023 Padangbai Gili Fastboat. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multibahasa Implementation
+        const languageData = {
+            'id': {
+                'hero-title': 'Tiket Fastboat ke Pulau Gili',
+                'hero-subtitle': 'Perjalanan cepat, aman, dan nyaman ke Gili Trawangan, Gili Meno, dan Gili Air',
+                'hero-button': 'Pesan Sekarang',
+                'features-title': 'Mengapa Memilih Kami?',
+                'features-subtitle': 'Layanan terbaik untuk perjalanan Anda ke Pulau Gili',
+                'feature1-title': 'Perjalanan Cepat',
+                'feature1-text': 'Hanya 1.5 jam dari Padangbai ke Gili Trawangan dengan kapal cepat modern kami.',
+                'feature2-title': 'Keamanan Terjamin',
+                'feature2-text': 'Kapal kami dilengkapi dengan peralatan keselamatan terbaru dan kru berpengalaman.',
+                'feature3-title': 'Pemesanan Mudah',
+                'feature3-text': 'Pesan tiket online kapan saja dan dapatkan konfirmasi instan melalui email.',
+                'schedule-title': 'Jadwal dan Rute',
+                'schedule-subtitle': 'Pilih jadwal yang sesuai dengan rencana perjalanan Anda',
+                'route-title': 'Padangbai ke Pulau Gili',
+                'departure-header': 'Keberangkatan',
+                'arrival-header': 'Tiba',
+                'destination-header': 'Tujuan',
+                'price-header': 'Harga',
+                'note-header': 'Catatan:',
+                'note-text': 'Harga untuk dewasa. Anak-anak (3-11 tahun) mendapat diskon 30%. Bayi (0-2 tahun) gratis.',
+                'booking-title': 'Pesan Tiket Anda',
+                'booking-subtitle': 'Isi formulir di bawah ini untuk memesan tiket fastboat Anda',
+                'form-title': 'Detail Pemesanan',
+                'name-label': 'Nama Lengkap',
+                'email-label': 'Email',
+                'phone-label': 'Nomor Telepon',
+                'date-label': 'Tanggal Keberangkatan',
+                'route-label': 'Rute',
+                'select-route': 'Pilih Rute',
+                'adults-label': 'Dewasa (12+ tahun)',
+                'children-label': 'Anak-anak (3-11 tahun)',
+                'message-label': 'Pesan Tambahan (opsional)',
+                'submit-button': 'Lanjutkan ke Pembayaran',
+                'summary-title': 'Ringkasan Pesanan',
+                'ticket-label': 'Tiket Dewasa (1x)',
+                'discount-label': 'Diskon',
+                'fee-label': 'Biaya Layanan',
+                'total-label': 'Total',
+                'summary-note': '* Harga termasuk PPN 10%',
+                'footer-about': 'Tentang Kami',
+                'footer-about-text': 'Padangbai Gili Fastboat menyediakan layanan transportasi cepat dan nyaman dari Padangbai ke Pulau Gili sejak 2010.',
+                'footer-links': 'Tautan Cepat',
+                'link-home': 'Beranda',
+                'link-schedule': 'Jadwal & Harga',
+                'link-faq': 'FAQ',
+                'link-terms': 'Syarat & Ketentuan',
+                'link-contact': 'Kontak Kami',
+                'footer-contact': 'Kontak Kami',
+                'address': 'Pelabuhan Padangbai, Bali',
+                'phone-footer': '+62 361 123456',
+                'email-footer': 'info@padangbaigilifastboat.com',
+                'hours': '08:00 - 17:00 (Setiap Hari)',
+                'copyright-text': '© 2023 Padangbai Gili Fastboat. Semua Hak Dilindungi.'
+            },
+            'en': {
+                'hero-title': 'Fastboat Tickets to Gili Islands',
+                'hero-subtitle': 'Fast, safe, and comfortable trips to Gili Trawangan, Gili Meno, and Gili Air',
+                'hero-button': 'Book Now',
+                'features-title': 'Why Choose Us?',
+                'features-subtitle': 'The best service for your trip to Gili Islands',
+                'feature1-title': 'Fast Journey',
+                'feature1-text': 'Only 1.5 hours from Padangbai to Gili Trawangan with our modern fast boats.',
+                'feature2-title': 'Guaranteed Safety',
+                'feature2-text': 'Our boats are equipped with the latest safety equipment and experienced crew.',
+                'feature3-title': 'Easy Booking',
+                'feature3-text': 'Book tickets online anytime and get instant confirmation via email.',
+                'schedule-title': 'Schedule & Routes',
+                'schedule-subtitle': 'Choose a schedule that fits your travel plans',
+                'route-title': 'Padangbai to Gili Islands',
+                'departure-header': 'Departure',
+                'arrival-header': 'Arrival',
+                'destination-header': 'Destination',
+                'price-header': 'Price',
+                'note-header': 'Note:',
+                'note-text': 'Prices are for adults. Children (3-11 years) get 30% discount. Infants (0-2 years) are free.',
+                'booking-title': 'Book Your Ticket',
+                'booking-subtitle': 'Fill out the form below to book your fastboat ticket',
+                'form-title': 'Booking Details',
+                'name-label': 'Full Name',
+                'email-label': 'Email',
+                'phone-label': 'Phone Number',
+                'date-label': 'Departure Date',
+                'route-label': 'Route',
+                'select-route': 'Select Route',
+                'adults-label': 'Adults (12+ years)',
+                'children-label': 'Children (3-11 years)',
+                'message-label': 'Additional Message (optional)',
+                'submit-button': 'Proceed to Payment',
+                'summary-title': 'Order Summary',
+                'ticket-label': 'Adult Ticket (1x)',
+                'discount-label': 'Discount',
+                'fee-label': 'Service Fee',
+                'total-label': 'Total',
+                'summary-note': '* Price includes 10% VAT',
+                'footer-about': 'About Us',
+                'footer-about-text': 'Padangbai Gili Fastboat has been providing fast and comfortable transportation from Padangbai to Gili Islands since 2010.',
+                'footer-links': 'Quick Links',
+                'link-home': 'Home',
+                'link-schedule': 'Schedule & Pricing',
+                'link-faq': 'FAQ',
+                'link-terms': 'Terms & Conditions',
+                'link-contact': 'Contact Us',
+                'footer-contact': 'Contact Us',
+                'address': 'Padangbai Harbor, Bali',
+                'phone-footer': '+62 361 123456',
+                'email-footer': 'info@padangbaigilifastboat.com',
+                'hours': '08:00 - 17:00 (Everyday)',
+                'copyright-text': '© 2023 Padangbai Gili Fastboat. All Rights Reserved.'
+            }
+        };
+
+        // Language Switching Function
+        function switchLanguage(lang) {
+            // Update all elements with data-lang-key
+            document.querySelectorAll('[id]').forEach(element => {
+                const key = element.id;
+                if (languageData[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = languageData[lang][key];
+                    } else {
+                        element.textContent = languageData[lang][key];
+                    }
+                }
+            });
+            
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`${lang}-lang`).classList.add('active');
+        }
+
+        // Initialize with Indonesian
+        switchLanguage('id');
+
+        // Event Listeners for Language Buttons
+        document.getElementById('id-lang').addEventListener('click', () => {
+            switchLanguage('id');
+        });
+
+        document.getElementById('en-lang').addEventListener('click', () => {
+            switchLanguage('en');
+        });
+
+        // Tab Switching Functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Update route title
+                const route = this.getAttribute('data-route');
+                if (route === 'padangbai-gili') {
+                    document.getElementById('route-title').textContent = 
+                        document.querySelector('.lang-btn.active').id === 'id-lang' ? 
+                        'Padangbai ke Pulau Gili' : 'Padangbai to Gili Islands';
+                } else {
+                    document.getElementById('route-title').textContent = 
+                        document.querySelector('.lang-btn.active').id === 'id-lang' ? 
+                        'Pulau Gili ke Padangbai' : 'Gili Islands to Padangbai';
+                }
+            });
+        });
+
+        // Booking Form Submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, this would send data to the server
+            alert(document.querySelector('.lang-btn.active').id === 'id-lang' ?
+                'Pemesanan berhasil! Silakan cek email Anda untuk detail pembayaran.' :
+                'Booking successful! Please check your email for payment details.');
+        });
+    </script>
+</body>
+</html>
